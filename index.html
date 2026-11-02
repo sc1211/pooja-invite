@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sri Satyanarayana Swamy Pooja invitation</title>
+<meta name="description" content="You and your family are invited to join us for Sri Satyanarayana Swamy Pooja.">
+<meta property="og:title" content="Sri Satyanarayana Swamy Pooja invitation">
+<meta property="og:description" content="Friday, November 13, 2026 at 6:00 PM in Celina, TX. Pooja, followed by dinner.">
+<meta property="og:type" content="website">
+<!-- Asks search engines not to list this page. It does not make the page private. -->
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&family=Yatra+One&display=swap" rel="stylesheet">
+
+<script>
+  /* ======================================================
+     EDIT YOUR INVITE HERE. Change only the text in quotes.
+     Leave a value as "" to hide its button.
+     ====================================================== */
+  const INVITE = {
+    hosts:         "Nirosha & Srinivas",
+    kids:          "",
+    dateText:      "Friday, November 13, 2026",
+    poojaTime:     "6:00 PM",
+    venue:         "",
+    address:       "6210 Shasta Creek Rd, Celina, TX 75009",
+
+    // Add to calendar button. Example: "2026-11-21T10:00"
+    calendarStart: "2026-11-13T18:00",
+    calendarEnd:   "2026-11-13T21:00",
+    timeZone:      "America/Chicago",
+
+    // RSVP form. Guests' replies go to the WhatsApp number and/or email below.
+    // Phone must include the country code, digits only. Example: "12145550123"
+    rsvpBy:        "November 9",
+    rsvpFormUrl:   "",  // Google Form link. When set, it replaces the form on this page.
+    rsvpPhoneText: "+1 262-408-3010",
+    rsvpWhatsApp:  "12624083010",
+    rsvpEmail:     "cheeti.srinivas@gmail.com"
+  };
+</script>
+
+<style>
+  :root {
+    --turmeric: #f7c331;
+    --kumkum: #8e1024;
+    --maroon: #430a14;
+    --leaf: #1f5b3a;
+    --ivory: #fff8e1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--turmeric);
+    color: var(--maroon);
+    font-family: "Mukta", "Noto Sans", system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .toran {
+    display: block;
+    width: 100%;
+    height: 124px;
+    animation: settle 900ms cubic-bezier(.2, .8, .3, 1) both;
+  }
+
+  @keyframes settle {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  main {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+
+  .mantra {
+    margin: 0 0 1rem;
+    color: var(--kumkum);
+    font-family: "Yatra One", "Noto Sans Devanagari", serif;
+    font-size: 1.375rem;
+    line-height: 1.4;
+  }
+
+  h1 {
+    margin: 0 0 1.25rem;
+    color: var(--kumkum);
+    font-family: "Yatra One", "Noto Sans Devanagari", serif;
+    font-size: clamp(3rem, 13vw, 5.25rem);
+    font-weight: 400;
+    line-height: 1.02;
+  }
+
+  .welcome {
+    max-width: 30rem;
+    margin: 0 auto;
+    font-size: 1.25rem;
+  }
+
+  .hosts {
+    margin: .75rem 0 2.5rem;
+    font-weight: 600;
+  }
+
+  .hosts span { display: block; }
+  #kids { font-weight: 400; }
+
+  .details {
+    margin: 0 0 2.5rem;
+    padding: 1.75rem 0;
+    border-top: 3px solid var(--kumkum);
+    border-bottom: 3px solid var(--kumkum);
+  }
+
+  .date {
+    margin: 0 0 .75rem;
+    font-family: "Yatra One", "Noto Sans Devanagari", serif;
+    font-size: clamp(1.625rem, 6vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .schedule { margin: 0 0 1.5rem; }
+  .schedule strong { font-weight: 600; }
+
+  .venue {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .address { margin: 0; overflow-wrap: anywhere; }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+  }
+
+  .button {
+    display: inline-block;
+    min-height: 3rem;
+    padding: .625rem 1.25rem;
+    border: 2px solid var(--kumkum);
+    border-radius: 999px;
+    color: var(--kumkum);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .button:hover { background: var(--ivory); }
+
+  .button.primary {
+    background: var(--kumkum);
+    color: var(--ivory);
+  }
+
+  .button.primary:hover { background: var(--maroon); border-color: var(--maroon); }
+
+  .button:focus-visible {
+    outline: 3px solid var(--leaf);
+    outline-offset: 3px;
+  }
+
+  .rsvp {
+    margin: 0 0 2.5rem;
+    text-align: left;
+  }
+
+  .rsvp h2 {
+    margin: 0;
+    color: var(--kumkum);
+    font-family: "Yatra One", "Noto Sans Devanagari", serif;
+    font-size: clamp(1.625rem, 6vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .rsvp-by {
+    margin: .25rem 0 1.5rem;
+    text-align: center;
+  }
+
+  .field { margin: 0 0 1.25rem; }
+
+  .field > label,
+  .field legend {
+    display: block;
+    margin-bottom: .25rem;
+    padding: 0;
+    font-weight: 600;
+  }
+
+  fieldset.field {
+    min-width: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1.5rem;
+  }
+
+  .choices label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    min-height: 2.75rem;
+  }
+
+  .choices input {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: var(--kumkum);
+  }
+
+  .rsvp input[type="text"],
+  .rsvp input[type="number"],
+  .rsvp textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: .5rem .75rem;
+    border: 2px solid var(--maroon);
+    border-radius: 6px;
+    background: var(--ivory);
+    color: var(--maroon);
+    font: inherit;
+  }
+
+  .rsvp input[type="number"] { width: 7rem; }
+
+  .rsvp input:focus-visible,
+  .rsvp textarea:focus-visible {
+    outline: 3px solid var(--leaf);
+    outline-offset: 2px;
+  }
+
+  .button { cursor: pointer; font: inherit; font-weight: 600; background: transparent; }
+
+  .rsvp-contact {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .rsvp-contact a { color: var(--kumkum); font-weight: 600; }
+
+  .rsvp-contact a:focus-visible {
+    outline: 3px solid var(--leaf);
+    outline-offset: 2px;
+  }
+
+  .rsvp-status {
+    margin: 1rem 0 0;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  [hidden] { display: none !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toran { animation: none; }
+  }
+
+  @media print {
+    .actions { display: none; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="toran" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="toran" width="120" height="124" patternUnits="userSpaceOnUse">
+      <rect width="120" height="10" fill="#8e1024"/>
+      <g fill="#1f5b3a">
+        <path d="M30 8c17 22 17 62 0 92c-17-30-17-70 0-92Z"/>
+        <path d="M90 8c17 22 17 62 0 92c-17-30-17-70 0-92Z"/>
+      </g>
+      <g stroke="#7fb58f" stroke-width="1.5">
+        <path d="M30 14v78"/>
+        <path d="M90 14v78"/>
+      </g>
+      <path d="M0 8v40M60 8v44M120 8v40" stroke="#8e1024" stroke-width="2"/>
+      <g id="marigold">
+        <circle cx="60" cy="66" r="18" fill="#c2410c"/>
+        <g fill="#ea580c">
+          <circle cx="60" cy="52" r="7"/><circle cx="70" cy="56" r="7"/><circle cx="74" cy="66" r="7"/>
+          <circle cx="70" cy="76" r="7"/><circle cx="60" cy="80" r="7"/><circle cx="50" cy="76" r="7"/>
+          <circle cx="46" cy="66" r="7"/><circle cx="50" cy="56" r="7"/>
+        </g>
+        <circle cx="60" cy="66" r="9" fill="#9a3412"/>
+        <circle cx="60" cy="66" r="4" fill="#fff8e1"/>
+      </g>
+      <g fill="#c2410c">
+        <circle cx="0" cy="58" r="10"/><circle cx="120" cy="58" r="10"/>
+      </g>
+      <g fill="#fff8e1">
+        <circle cx="0" cy="58" r="3"/><circle cx="120" cy="58" r="3"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="100%" height="124" fill="url(#toran)"/>
+</svg>
+
+<main>
+  <p class="mantra" lang="sa">ॐ श्री सत्यनारायणाय नमः</p>
+  <h1>Sri Satyanarayana Swamy Pooja</h1>
+
+  <p class="welcome">With the blessings of Lord Satyanarayana Swamy, we invite you and your family to join us for the pooja, followed by dinner.</p>
+  <p class="hosts"><span id="hosts"></span><span id="kids"></span></p>
+
+  <section class="details" aria-label="Date, time, and location">
+    <p class="date" id="date"></p>
+    <p class="schedule">Pooja begins at <strong id="poojaTime"></strong><br>Dinner to follow</p>
+    <p class="venue" id="venue"></p>
+    <p class="address" id="address"></p>
+  </section>
+
+  <section class="rsvp" aria-labelledby="rsvp-title">
+    <h2 id="rsvp-title">RSVP</h2>
+    <p class="rsvp-by" id="rsvpBy"></p>
+
+    <p class="actions" id="googleForm" hidden>
+      <a class="button primary" id="googleFormLink" target="_blank" rel="noopener">RSVP and share your headcount</a>
+    </p>
+
+    <form id="rsvpForm">
+      <div class="field">
+        <label for="guestName">Your name</label>
+        <input type="text" id="guestName" name="guestName" autocomplete="name" required>
+      </div>
+
+      <fieldset class="field">
+        <legend>Will you be joining us?</legend>
+        <div class="choices">
+          <label><input type="radio" name="attending" value="yes" required checked> Yes, we will attend</label>
+          <label><input type="radio" name="attending" value="no"> Sorry, we can't attend</label>
+        </div>
+      </fieldset>
+
+      <div class="field" id="countField">
+        <label for="guestCount">Number of people, including you</label>
+        <input type="number" id="guestCount" name="guestCount" min="1" max="50" value="1" inputmode="numeric" required>
+      </div>
+
+      <div class="field">
+        <label for="guestNote">Message (optional)</label>
+        <textarea id="guestNote" name="guestNote" rows="3"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="button primary" id="sendWhatsApp" hidden>Send RSVP on WhatsApp</button>
+        <button type="button" class="button primary" id="sendEmail" hidden>Send RSVP by email</button>
+      </div>
+      <p class="rsvp-status" id="rsvpStatus" role="status"></p>
+    </form>
+
+    <p class="rsvp-contact">Questions? Call or WhatsApp <a id="contactPhone"></a> or email <a id="contactEmail"></a></p>
+  </section>
+
+  <nav class="actions" aria-label="Invitation actions">
+    <a class="button" id="directions" target="_blank" rel="noopener">Get directions</a>
+    <a class="button" id="calendar" target="_blank" rel="noopener" hidden>Add to calendar</a>
+  </nav>
+</main>
+
+<script>
+  const setText = (id, value) => { document.getElementById(id).textContent = value; };
+  const showLink = (id, href) => {
+    const link = document.getElementById(id);
+    link.href = href;
+    link.hidden = false;
+  };
+  const toCalendarTime = (value) => value.replace(/[-:]/g, "") + "00";
+
+  ["date", "poojaTime", "venue", "address"].forEach((id) => {
+    setText(id, id === "date" ? INVITE.dateText : INVITE[id]);
+  });
+  document.getElementById("venue").hidden = !INVITE.venue;
+  document.getElementById("hosts").hidden = !INVITE.hosts;
+  setText("hosts", "Hosted by " + INVITE.hosts);
+  document.getElementById("kids").hidden = !INVITE.kids;
+  setText("kids", "Kids: " + INVITE.kids);
+
+  const eventName = "Sri Satyanarayana Swamy Pooja";
+  const fullAddress = (INVITE.venue ? INVITE.venue + ", " : "") + INVITE.address;
+
+  showLink("directions", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(INVITE.address));
+
+  const form = document.getElementById("rsvpForm");
+  const countField = document.getElementById("countField");
+  const guestCount = document.getElementById("guestCount");
+  const status = document.getElementById("rsvpStatus");
+  const sendWhatsApp = document.getElementById("sendWhatsApp");
+  const sendEmail = document.getElementById("sendEmail");
+
+  setText("rsvpBy", INVITE.rsvpBy ? "Please reply by " + INVITE.rsvpBy : "Please let us know if you can join");
+  sendWhatsApp.hidden = !INVITE.rsvpWhatsApp;
+  sendEmail.hidden = !INVITE.rsvpEmail;
+  if (!INVITE.rsvpWhatsApp && !INVITE.rsvpEmail) {
+    status.textContent = "RSVP contact not set. Add a WhatsApp number or email in the INVITE section.";
+  }
+
+  if (INVITE.rsvpFormUrl) {
+    form.hidden = true;
+    document.getElementById("googleForm").hidden = false;
+    document.getElementById("googleFormLink").href = INVITE.rsvpFormUrl;
+  }
+
+  const contactPhone = document.getElementById("contactPhone");
+  const contactEmail = document.getElementById("contactEmail");
+  contactPhone.textContent = INVITE.rsvpPhoneText;
+  contactPhone.href = "tel:+" + INVITE.rsvpWhatsApp;
+  contactEmail.textContent = INVITE.rsvpEmail;
+  contactEmail.href = "mailto:" + INVITE.rsvpEmail;
+
+  const isAttending = () => form.elements.attending.value === "yes";
+
+  form.addEventListener("change", () => {
+    countField.hidden = !isAttending();
+    guestCount.required = isAttending();
+    guestCount.disabled = !isAttending();
+  });
+  form.addEventListener("submit", (event) => event.preventDefault());
+
+  const rsvpMessage = () => {
+    const name = form.elements.guestName.value.trim();
+    const note = form.elements.guestNote.value.trim();
+    const lines = [
+      "Namaste! RSVP for " + eventName,
+      "Name: " + name,
+      isAttending() ? "Attending: Yes, " + guestCount.value + " people total" : "Attending: No"
+    ];
+    if (note) lines.push("Message: " + note);
+    return lines.join("\n");
+  };
+
+  const isReady = () => {
+    form.elements.guestName.value = form.elements.guestName.value.trim();
+    return form.reportValidity();
+  };
+
+  sendWhatsApp.addEventListener("click", () => {
+    if (!isReady()) return;
+    window.open("https://wa.me/" + INVITE.rsvpWhatsApp + "?text=" + encodeURIComponent(rsvpMessage()), "_blank", "noopener");
+    status.textContent = "Your RSVP is ready in WhatsApp. Press send there to finish.";
+  });
+
+  sendEmail.addEventListener("click", () => {
+    if (!isReady()) return;
+    window.location.href = "mailto:" + INVITE.rsvpEmail +
+      "?subject=" + encodeURIComponent("RSVP: " + eventName) +
+      "&body=" + encodeURIComponent(rsvpMessage());
+    status.textContent = "Your RSVP is ready in your email app. Press send there to finish.";
+  });
+
+  if (INVITE.calendarStart && INVITE.calendarEnd) {
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: eventName,
+      dates: toCalendarTime(INVITE.calendarStart) + "/" + toCalendarTime(INVITE.calendarEnd),
+      location: fullAddress,
+      ctz: INVITE.timeZone
+    });
+    showLink("calendar", "https://calendar.google.com/calendar/render?" + params.toString());
+  }
+</script>
+</body>
+</html>
