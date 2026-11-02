@@ -32,13 +32,14 @@
     calendarEnd:   "2026-11-13T21:00",
     timeZone:      "America/Chicago",
 
-    // RSVP form. Guests' replies go to the WhatsApp number and/or email below.
-    // Phone must include the country code, digits only. Example: "12145550123"
+    // Paste your Google Form responder link between the quotes.
+    rsvpFormUrl:   "https://forms.gle/S1X1ExZe4m5dhH2b7",
     rsvpBy:        "November 9",
-    rsvpFormUrl:   "",  // Google Form link. When set, it replaces the form on this page.
-    rsvpPhoneText: "+1 262-408-3010",
-    rsvpWhatsApp:  "12624083010",
-    rsvpEmail:     "cheeti.srinivas@gmail.com"
+
+    // Shown for guests' questions. Leave as "" to hide.
+    contactPhoneText: "+1 262-408-3010",
+    contactPhoneDial: "+12624083010",
+    contactEmail:     ""
   };
 </script>
 
@@ -170,10 +171,7 @@
     outline-offset: 3px;
   }
 
-  .rsvp {
-    margin: 0 0 2.5rem;
-    text-align: left;
-  }
+  .rsvp { margin: 0 0 2.5rem; }
 
   .rsvp h2 {
     margin: 0;
@@ -189,64 +187,6 @@
     margin: .25rem 0 1.5rem;
     text-align: center;
   }
-
-  .field { margin: 0 0 1.25rem; }
-
-  .field > label,
-  .field legend {
-    display: block;
-    margin-bottom: .25rem;
-    padding: 0;
-    font-weight: 600;
-  }
-
-  fieldset.field {
-    min-width: 0;
-    border: 0;
-    padding: 0;
-  }
-
-  .choices {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .25rem 1.5rem;
-  }
-
-  .choices label {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    min-height: 2.75rem;
-  }
-
-  .choices input {
-    width: 1.25rem;
-    height: 1.25rem;
-    accent-color: var(--kumkum);
-  }
-
-  .rsvp input[type="text"],
-  .rsvp input[type="number"],
-  .rsvp textarea {
-    width: 100%;
-    min-height: 3rem;
-    padding: .5rem .75rem;
-    border: 2px solid var(--maroon);
-    border-radius: 6px;
-    background: var(--ivory);
-    color: var(--maroon);
-    font: inherit;
-  }
-
-  .rsvp input[type="number"] { width: 7rem; }
-
-  .rsvp input:focus-visible,
-  .rsvp textarea:focus-visible {
-    outline: 3px solid var(--leaf);
-    outline-offset: 2px;
-  }
-
-  .button { cursor: pointer; font: inherit; font-weight: 600; background: transparent; }
 
   .rsvp-contact {
     margin: 1.5rem 0 0;
@@ -334,41 +274,12 @@
     <p class="rsvp-by" id="rsvpBy"></p>
 
     <p class="actions" id="googleForm" hidden>
-      <a class="button primary" id="googleFormLink" target="_blank" rel="noopener">RSVP and share your headcount</a>
+      <a class="button primary" id="googleFormLink" target="_blank" rel="noopener">Send your RSVP</a>
     </p>
 
-    <form id="rsvpForm">
-      <div class="field">
-        <label for="guestName">Your name</label>
-        <input type="text" id="guestName" name="guestName" autocomplete="name" required>
-      </div>
+    <p class="rsvp-status" id="rsvpStatus" role="status"></p>
 
-      <fieldset class="field">
-        <legend>Will you be joining us?</legend>
-        <div class="choices">
-          <label><input type="radio" name="attending" value="yes" required checked> Yes, we will attend</label>
-          <label><input type="radio" name="attending" value="no"> Sorry, we can't attend</label>
-        </div>
-      </fieldset>
-
-      <div class="field" id="countField">
-        <label for="guestCount">Number of people, including you</label>
-        <input type="number" id="guestCount" name="guestCount" min="1" max="50" value="1" inputmode="numeric" required>
-      </div>
-
-      <div class="field">
-        <label for="guestNote">Message (optional)</label>
-        <textarea id="guestNote" name="guestNote" rows="3"></textarea>
-      </div>
-
-      <div class="actions">
-        <button type="button" class="button primary" id="sendWhatsApp" hidden>Send RSVP on WhatsApp</button>
-        <button type="button" class="button primary" id="sendEmail" hidden>Send RSVP by email</button>
-      </div>
-      <p class="rsvp-status" id="rsvpStatus" role="status"></p>
-    </form>
-
-    <p class="rsvp-contact">Questions? Call or WhatsApp <a id="contactPhone"></a> or email <a id="contactEmail"></a></p>
+    <p class="rsvp-contact" id="contactLine">Questions? <span id="phonePart">Call <a id="contactPhone"></a></span><span id="joinPart"> or </span><span id="emailPart">email <a id="contactEmail"></a></span></p>
   </section>
 
   <nav class="actions" aria-label="Invitation actions">
@@ -400,72 +311,30 @@
 
   showLink("directions", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(INVITE.address));
 
-  const form = document.getElementById("rsvpForm");
-  const countField = document.getElementById("countField");
-  const guestCount = document.getElementById("guestCount");
   const status = document.getElementById("rsvpStatus");
-  const sendWhatsApp = document.getElementById("sendWhatsApp");
-  const sendEmail = document.getElementById("sendEmail");
 
   setText("rsvpBy", INVITE.rsvpBy ? "Please reply by " + INVITE.rsvpBy : "Please let us know if you can join");
-  sendWhatsApp.hidden = !INVITE.rsvpWhatsApp;
-  sendEmail.hidden = !INVITE.rsvpEmail;
-  if (!INVITE.rsvpWhatsApp && !INVITE.rsvpEmail) {
-    status.textContent = "RSVP contact not set. Add a WhatsApp number or email in the INVITE section.";
-  }
 
   if (INVITE.rsvpFormUrl) {
-    form.hidden = true;
     document.getElementById("googleForm").hidden = false;
     document.getElementById("googleFormLink").href = INVITE.rsvpFormUrl;
+  } else {
+    status.textContent = "Google Form link not set. Add it as rsvpFormUrl in the INVITE section.";
   }
+
+  const hasPhone = Boolean(INVITE.contactPhoneText);
+  const hasEmail = Boolean(INVITE.contactEmail);
+  document.getElementById("contactLine").hidden = !hasPhone && !hasEmail;
+  document.getElementById("phonePart").hidden = !hasPhone;
+  document.getElementById("emailPart").hidden = !hasEmail;
+  document.getElementById("joinPart").hidden = !(hasPhone && hasEmail);
 
   const contactPhone = document.getElementById("contactPhone");
   const contactEmail = document.getElementById("contactEmail");
-  contactPhone.textContent = INVITE.rsvpPhoneText;
-  contactPhone.href = "tel:+" + INVITE.rsvpWhatsApp;
-  contactEmail.textContent = INVITE.rsvpEmail;
-  contactEmail.href = "mailto:" + INVITE.rsvpEmail;
-
-  const isAttending = () => form.elements.attending.value === "yes";
-
-  form.addEventListener("change", () => {
-    countField.hidden = !isAttending();
-    guestCount.required = isAttending();
-    guestCount.disabled = !isAttending();
-  });
-  form.addEventListener("submit", (event) => event.preventDefault());
-
-  const rsvpMessage = () => {
-    const name = form.elements.guestName.value.trim();
-    const note = form.elements.guestNote.value.trim();
-    const lines = [
-      "Namaste! RSVP for " + eventName,
-      "Name: " + name,
-      isAttending() ? "Attending: Yes, " + guestCount.value + " people total" : "Attending: No"
-    ];
-    if (note) lines.push("Message: " + note);
-    return lines.join("\n");
-  };
-
-  const isReady = () => {
-    form.elements.guestName.value = form.elements.guestName.value.trim();
-    return form.reportValidity();
-  };
-
-  sendWhatsApp.addEventListener("click", () => {
-    if (!isReady()) return;
-    window.open("https://wa.me/" + INVITE.rsvpWhatsApp + "?text=" + encodeURIComponent(rsvpMessage()), "_blank", "noopener");
-    status.textContent = "Your RSVP is ready in WhatsApp. Press send there to finish.";
-  });
-
-  sendEmail.addEventListener("click", () => {
-    if (!isReady()) return;
-    window.location.href = "mailto:" + INVITE.rsvpEmail +
-      "?subject=" + encodeURIComponent("RSVP: " + eventName) +
-      "&body=" + encodeURIComponent(rsvpMessage());
-    status.textContent = "Your RSVP is ready in your email app. Press send there to finish.";
-  });
+  contactPhone.textContent = INVITE.contactPhoneText;
+  contactPhone.href = "tel:" + INVITE.contactPhoneDial;
+  contactEmail.textContent = INVITE.contactEmail;
+  contactEmail.href = "mailto:" + INVITE.contactEmail;
 
   if (INVITE.calendarStart && INVITE.calendarEnd) {
     const params = new URLSearchParams({
